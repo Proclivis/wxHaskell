@@ -40,6 +40,7 @@ module Graphics.UI.WXCore
 
         -- * Run
         , run
+        , runExt
         ) where
 
 import System.Mem( performGC )
@@ -77,6 +78,13 @@ run init
        performGC
        performGC
 
-
+runExt :: [String] -> IO a -> IO ()
+runExt args init
+  = do enableGUI
+       appOnInitExt args (do wxcAppInitAllImageHandlers
+                             init
+                             return ())
+       performGC
+       performGC
 
 

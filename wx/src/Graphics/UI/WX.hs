@@ -17,6 +17,7 @@ functionality provided by the "Graphics.UI.WXCore" library.
 module Graphics.UI.WX
   ( -- * Functions
     start
+  , startExt
     -- * Modules
   , module Graphics.UI.WX.Types
   , module Graphics.UI.WX.Attributes
@@ -58,3 +59,7 @@ import Graphics.UI.WXCore
 start :: IO a -> IO ()
 start io
   = run (unitIO io)
+
+startExt :: [String] -> IO a -> IO ()
+startExt args io
+  = runExt args (unitIO io)

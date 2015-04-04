@@ -222,6 +222,7 @@ module Graphics.UI.WXCore.Events
 
         -- * Primitive
         , appOnInit
+        , appOnInitExt
 
         -- ** Client data
         , treeCtrlSetItemClientData
@@ -2820,7 +2821,18 @@ appOnInit init
   where
     onDelete ownerDeleted
       = init
-           
+          
+appOnInitExt :: [String] -> IO () -> IO ()
+appOnInitExt args init
+  = do closure  <- createClosure (return () :: IO ()) onDelete (\ev -> return ())   -- run init on destroy !
+       progName <- getProgName
+       argv     <- mapM newCWString (progName:args)
+       let argc = length argv
+       withArray (argv ++ [nullPtr]) $ \cargv -> wxcAppInitializeC closure argc cargv
+       mapM_ free argv
+  where
+    onDelete ownerDeleted
+      = init 
 
 
 ------------------------------------------------------------------------------------------
