@@ -283,6 +283,9 @@ TClass(wxProgressDialog) wxProgressDialog_Create( TClass(wxString) title, TClass
 TBool wxProgressDialog_Update(TSelf(wxProgressDialog) obj, int value );
 TBool wxProgressDialog_UpdateWithMessage( TSelf(wxProgressDialog) obj, int value, TClass(wxString) message );
 void wxProgressDialog_Resume( TSelf(wxProgressDialog) obj );
+int wxProgressDialog_GetValue( TSelf(wxProgressDialog) obj );
+int wxProgressDialog_GetRange( TSelf(wxProgressDialog) obj );
+TBool wxProgressDialog_WasCancelled( TSelf(wxProgressDialog) obj );
 
 /** Get the version number of wxWidgets as a number composed of the major version times 1000, minor version times 100, and the release number. For example, release 2.1.15 becomes 2115. */
 int wxVersionNumber();

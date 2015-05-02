@@ -1950,6 +1950,20 @@ EWXWEXPORT(void,wxProgressDialog_Resume)(wxProgressDialog* self)
   self->Resume();
 }
 
+EWXWEXPORT(int,wxProgressDialog_GetValue)(wxProgressDialog* self)
+{
+  return self->GetValue();
+}
+
+EWXWEXPORT(int,wxProgressDialog_GetRange)(wxProgressDialog* self)
+{
+  return self->GetRange();
+}
+
+EWXWEXPORT(bool,wxProgressDialog_WasCancelled)(wxProgressDialog* self)
+{
+  return self->WasCancelled();
+}
 
 /*------------------------------------------------------------------------------
   standard dialogs
