@@ -122,9 +122,16 @@ EWXWEXPORT(int,ELJLog_GetVerbose)(ELJLog* self)
 	return (int)self->GetVerbose();
 }
 	
-EWXWEXPORT(int,ELJLog_GetTraceMask)(ELJLog* self)
+EWXWEXPORT(int,ELJLog_GetTraceMasks)(ELJLog* self,void* masks)
 {
-	return (int)self->GetTraceMask();
+	wxArrayString arr;
+	arr = self->GetTraceMasks();
+	if (masks)
+	{
+		for (unsigned int i = 0; i < arr.GetCount(); i++)
+		    ((const wxChar**)masks)[i] = wxStrdup (arr.Item(i).wchar_str());
+	}
+	return arr.GetCount();
 }
 	
 EWXWEXPORT(bool,ELJLog_IsAllowedTraceMask)(ELJLog* self,void* mask)

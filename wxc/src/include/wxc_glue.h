@@ -638,7 +638,7 @@ void       ELJLog_Flush( TSelf(ELJLog) _obj );
 void       ELJLog_FlushActive( TSelf(ELJLog) _obj );
 void*      ELJLog_GetActiveTarget(  );
 void*      ELJLog_GetTimestamp( TSelf(ELJLog) _obj );
-int        ELJLog_GetTraceMask( TSelf(ELJLog) _obj );
+int        ELJLog_GetTraceMasks( TSelf(ELJLog) _obj, void* masks );
 int        ELJLog_GetVerbose( TSelf(ELJLog) _obj );
 TBool      ELJLog_HasPendingMessages( TSelf(ELJLog) _obj );
 TBool      ELJLog_IsAllowedTraceMask( TSelf(ELJLog) _obj, TClass(wxMask) mask );
@@ -2881,13 +2881,9 @@ TClassDefExtend(wxGLCanvas,wxScrolledWindow)
 /* wxGauge */
 TClassDefExtend(wxGauge,wxControl)
 TClass(wxGauge) wxGauge_Create( TClass(wxWindow) _prt, int _id, int _rng, TRect(_lft,_top,_wdt,_hgt), int _stl );
-int        wxGauge_GetBezelFace( TSelf(wxGauge) _obj );
 int        wxGauge_GetRange( TSelf(wxGauge) _obj );
-int        wxGauge_GetShadowWidth( TSelf(wxGauge) _obj );
 int        wxGauge_GetValue( TSelf(wxGauge) _obj );
-void       wxGauge_SetBezelFace( TSelf(wxGauge) _obj, int w );
 void       wxGauge_SetRange( TSelf(wxGauge) _obj, int r );
-void       wxGauge_SetShadowWidth( TSelf(wxGauge) _obj, int w );
 void       wxGauge_SetValue( TSelf(wxGauge) _obj, int pos );
 
 /* wxGenericDirCtrl */

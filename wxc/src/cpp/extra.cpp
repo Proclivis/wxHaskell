@@ -2358,9 +2358,16 @@ EWXWEXPORT(bool,wxLog_GetVerbose)(wxLog* self)
 	return self->GetVerbose();
 }
 
-EWXWEXPORT(int,wxLog_GetTraceMask)(wxLog* self)
+EWXWEXPORT(int,wxLog_GetTraceMasks)(wxLog* self,void* masks)
 {
-	return (int)self->GetTraceMask();
+	wxArrayString arr;
+	arr = self->GetTraceMasks();
+	if (masks)
+	{
+		for (unsigned int i = 0; i < arr.GetCount(); i++)
+		    ((const wxChar**)masks)[i] = wxStrdup (arr.Item(i).wchar_str());
+	}
+	return arr.GetCount();
 }
 
 EWXWEXPORT(bool,wxLog_IsAllowedTraceMask)(wxLog* self,void* mask)

@@ -1,11 +1,14 @@
 #include "wrapper.h"
 
+#define LEN (CHAR_BIT * sizeof(int) - 1) / 3 + 2
 extern "C"
 {
 
 EWXWEXPORT(wxCursor*,Cursor_CreateFromStock)(int _id)
 {
-	return  new wxCursor(_id);
+	char str[LEN];
+	snprintf(str, LEN, "%d", _id);
+	return  new wxCursor(str);
 }
 
 EWXWEXPORT(wxCursor*,Cursor_CreateFromImage)(wxImage* image)

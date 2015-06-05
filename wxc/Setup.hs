@@ -292,7 +292,7 @@ bitnessMismatch =
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 -- A list of wxWidgets versions that can be handled by this version of wxHaskell
-wxCompatibleVersions = ["3.0", "2.9"] -- Preferred version first
+wxCompatibleVersions = ["3.1", "3.0", "2.9"] -- Preferred version first
 
 
 -- Get the preprocessor/compiler/linker options used for the most recent

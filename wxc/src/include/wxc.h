@@ -386,7 +386,7 @@ void       wxLog_Flush( TSelf(wxLog) _obj );
 void       wxLog_FlushActive( TSelf(wxLog) _obj );
 TClass(wxLog)  wxLog_GetActiveTarget(  );
 char*      wxLog_GetTimestamp( TSelf(wxLog) _obj );
-int        wxLog_GetTraceMask( TSelf(wxLog) _obj );
+int        wxLog_GetTraceMasks( TSelf(wxLog) _obj, void* masks );
 int        wxLog_GetVerbose( TSelf(wxLog) _obj );
 TBool      wxLog_HasPendingMessages( TSelf(wxLog) _obj );
 TBool      wxLog_IsAllowedTraceMask( TSelf(wxLog) _obj, TClass(wxMask) mask );
